@@ -39,6 +39,13 @@ public class User {
         this.roles = roles;
     }
 
-    // Getters and Setters
-    // (Can generate using Lombok later if needed)
+    public String getEmail() {
+        return email;
+    }
+    public String getRoles(){
+        return roles.toString();
+    }
+    public String getPassword(){
+        return password;
+    }
 }
