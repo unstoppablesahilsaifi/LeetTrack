@@ -42,10 +42,10 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
+                new UsernamePasswordAuthenticationToken(authRequest.getEmail(), authRequest.getPassword())
         );
 
-        UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getEmail());
         String token = jwtUtil.generateToken(userDetails.getUsername());
 
         return ResponseEntity.ok(Map.of("token", token));
