@@ -16,6 +16,10 @@ import java.util.*;
 @Table(name = "users")
 public class User {
 
+    private Integer streak = 0;
+
+    private Date lastSubmissionDate;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

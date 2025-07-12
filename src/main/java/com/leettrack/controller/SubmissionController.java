@@ -1,6 +1,6 @@
 package com.leettrack.controller;
 
-import com.leettrack.entity.Submission;
+import com.leettrack.dto.SubmissionRequest;
 import com.leettrack.entity.Submission;
 import com.leettrack.service.SubmissionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +14,11 @@ public class SubmissionController {
     private SubmissionService submissionService;
 
     @PostMapping
-    public Submission submitChallenge(@RequestBody Submission submission) {
-        submission.setSubmittedAt(java.time.LocalDateTime.now());
-        return submissionService.submitChallenge(submission);
+    public Submission submitChallenge(@RequestBody SubmissionRequest request) {
+        return submissionService.submitSolution(
+                request.getChallengeId(),
+                request.getCode(),
+                request.getEmail()
+        );
     }
 }

@@ -9,6 +9,8 @@ import com.leettrack.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static org.apache.commons.lang3.time.DateUtils.isSameDay;
+
 @Service
 public class SubmissionService {
 
@@ -36,6 +38,14 @@ public class SubmissionService {
         submission.setSubmittedCode(code);
         submission.setIsCorrect(isCorrect);
 
+        // 🔥 STREAK LOGIC STARTS HERE
+        java.util.Date today = new java.util.Date();
+        if (user.getLastSubmissionDate() == null || !isSameDay(user.getLastSubmissionDate(), today)) {
+            user.setStreak(user.getStreak() + 1);
+        }
+        user.setLastSubmissionDate(today);
+        userRepository.save(user);
+        // 🔥 STREAK LOGIC ENDS HERE
         return submissionRepository.save(submission);
     }
 

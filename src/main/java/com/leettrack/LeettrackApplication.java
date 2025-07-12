@@ -10,13 +10,14 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
 
 @SpringBootApplication
 @EnableCaching
-
+@EnableScheduling
 public class LeettrackApplication {
 
 	public static void main(String[] args) {
