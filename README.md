@@ -44,12 +44,14 @@ leettrack/
 │       │           ├── controller/
 │       │           │   ├── SubmissionController.java
 │       │           │   ├── ChallengeController.java
-│       │           │   └── UserController.java
+│       │           │   └── AuthController.java
 │       │           │
 │       │           ├── entity/
 │       │           │   ├── User.java
 │       │           │   ├── Challenge.java
 │       │           │   └── Submission.java
+│       │           │   └── Difficulty.java
+│       │           │   └── Role.java
 │       │           │
 │       │           ├── repository/
 │       │           │   ├── UserRepository.java
@@ -60,17 +62,28 @@ leettrack/
 │       │           │   ├── SubmissionService.java
 │       │           │   ├── ChallengeService.java
 │       │           │   └── UserService.java
+│       │           │   └── StreakResetService.java
 │       │           │
 │       │           ├── config/
 │       │           │   ├── RedisConfig.java
 │       │           │   ├── SwaggerConfig.java
-│       │           │   └── CacheConfig.java
+│       │           │   └── SecurityConfig.java
+│       │           │
+│       │           ├── dto/
+│       │           │   ├── AuthRequest.java
+│       │           │   ├── AuthResponse.java
+│       │           │   └── RegisterRequest.java
+│       │           │   └── SubmissionRequest.java
 │       │           │
 │       │           ├── exception/
 │       │           │   └── GlobalExceptionHandler.java
 │       │           │
-│       │           └── scheduler/
-│       │               └── StreakResetJob.java
+│       │           ├── util/
+│       │           │   └── JwtUtil.java
+│       │           │
+│       │           └── security/
+│       │               └── CustomUserDetailsService.java
+│       │               └── JwtFilter.java
 │       │
 │       └── resources/
 │           ├── application.properties
