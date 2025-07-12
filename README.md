@@ -33,8 +33,7 @@ This service forms the backend logic for any frontend/client application for a "
 ---
 ## 📦 Project Structure
 
-<details> <summary>📁 Click to Expand Project Structure</summary>
-
+<pre>
 leettrack/
 │
 ├── src/
@@ -80,7 +79,7 @@ leettrack/
 ├── pom.xml
 ├── README.md
 └── .gitignore
-</details>
+</pre>
 
 
 
