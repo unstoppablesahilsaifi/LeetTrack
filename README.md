@@ -35,48 +35,50 @@ This service forms the backend logic for any frontend/client application for a "
 leettrack/
 │
 ├── src/
-│ └── main/
-│ ├── java/
-│ │ └── com/
-│ │ └── leettrack/
-│ │ ├── controller/
-│ │ │ └── SubmissionController.java
-│ │ │ └── ChallengeController.java
-│ │ │ └── UserController.java
-│ │ │
-│ │ ├── entity/
-│ │ │ └── User.java
-│ │ │ └── Challenge.java
-│ │ │ └── Submission.java
-│ │ │
-│ │ ├── repository/
-│ │ │ └── UserRepository.java
-│ │ │ └── ChallengeRepository.java
-│ │ │ └── SubmissionRepository.java
-│ │ │
-│ │ ├── service/
-│ │ │ └── SubmissionService.java
-│ │ │ └── ChallengeService.java
-│ │ │ └── UserService.java
-│ │ │
-│ │ ├── config/
-│ │ │ └── RedisConfig.java
-│ │ │ └── SwaggerConfig.java
-│ │ │ └── CacheConfig.java
-│ │ │
-│ │ ├── exception/
-│ │ │ └── GlobalExceptionHandler.java
-│ │ │
-│ │ ├── scheduler/
-│ │ │ └── StreakResetJob.java
-│ │
-│ └── resources/
-│ ├── application.properties
-│ └── schema.sql
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── leettrack/
+│       │           ├── controller/
+│       │           │   ├── SubmissionController.java
+│       │           │   ├── ChallengeController.java
+│       │           │   └── UserController.java
+│       │           │
+│       │           ├── entity/
+│       │           │   ├── User.java
+│       │           │   ├── Challenge.java
+│       │           │   └── Submission.java
+│       │           │
+│       │           ├── repository/
+│       │           │   ├── UserRepository.java
+│       │           │   ├── ChallengeRepository.java
+│       │           │   └── SubmissionRepository.java
+│       │           │
+│       │           ├── service/
+│       │           │   ├── SubmissionService.java
+│       │           │   ├── ChallengeService.java
+│       │           │   └── UserService.java
+│       │           │
+│       │           ├── config/
+│       │           │   ├── RedisConfig.java
+│       │           │   ├── SwaggerConfig.java
+│       │           │   └── CacheConfig.java
+│       │           │
+│       │           ├── exception/
+│       │           │   └── GlobalExceptionHandler.java
+│       │           │
+│       │           └── scheduler/
+│       │               └── StreakResetJob.java
+│       │
+│       └── resources/
+│           ├── application.properties
+│           └── schema.sql
 │
 ├── pom.xml
 ├── README.md
 └── .gitignore
+
+
 
 
 ## 📦 Features Implemented
