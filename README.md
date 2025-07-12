@@ -1,6 +1,6 @@
 # 📘 LeetTrack – Daily Coding Challenge Tracker
 
-**LeetTrack** is a backend service designed to manage coding challenges, user submissions, and streaks — with support for caching via Redis and streak resets via a scheduled cron job.
+**LeetTrack** is a backend service designed to manage coding challenges, user submissions, and streaks — with support for caching via Redis and streak resets via a scheduled cron job and With JWT authentication.
 
 ---
 
@@ -31,6 +31,53 @@ This service forms the backend logic for any frontend/client application for a "
 | **Swagger**            | API testing and documentation    |
 
 ---
+## 📦 Project Structure
+leettrack/
+│
+├── src/
+│   └── main/
+│       ├── java/
+│       │   └── com/
+│       │       └── leettrack/
+│       │           ├── controller/
+│       │           │   └── SubmissionController.java
+│       │           │   └── ChallengeController.java
+│       │           │   └── UserController.java
+│       │           │
+│       │           ├── entity/
+│       │           │   └── User.java
+│       │           │   └── Challenge.java
+│       │           │   └── Submission.java
+│       │           │
+│       │           ├── repository/
+│       │           │   └── UserRepository.java
+│       │           │   └── ChallengeRepository.java
+│       │           │   └── SubmissionRepository.java
+│       │           │
+│       │           ├── service/
+│       │           │   └── SubmissionService.java
+│       │           │   └── ChallengeService.java
+│       │           │   └── UserService.java
+│       │           │
+│       │           ├── config/
+│       │           │   └── RedisConfig.java
+│       │           │   └── SwaggerConfig.java
+│       │           │   └── CacheConfig.java
+│       │           │
+│       │           ├── exception/
+│       │           │   └── GlobalExceptionHandler.java
+│       │           │
+│       │           ├── scheduler/
+│       │           │   └── StreakResetJob.java
+│       │
+│       └── resources/
+│           ├── application.properties
+│           └── schema.sql (optional DB init)
+│
+├── pom.xml
+├── README.md
+└── .gitignore
+
 
 ## 📦 Features Implemented
 
@@ -45,33 +92,6 @@ This service forms the backend logic for any frontend/client application for a "
 - ✅ **Redis Caching with Memurai**
   - Caches hot challenges (`@Cacheable`)
 - ✅ **Exception Handling** with global `@ControllerAdvice`
-
----
-
-## 🔄 Caching Logic
-
-Hot challenges are cached using Spring's `@Cacheable` annotation:
-
-```java
-@Cacheable(value = "hotChallenges", key = "'hot'")
-public List<Challenge> getHotChallenges() {
-    log.info("Fetching hot challenges from DB");
-    return challengeRepository.findTop10ByOrderByViewsDesc();
-}
-```
-
----
-
-## ⏰ Cron Job Logic
-
-Streak reset logic runs every midnight:
-
-```java
-@Scheduled(cron = "0 0 0 * * *")
-public void resetStreaksIfMissed() {
-    // Resets users who haven't submitted today
-}
-```
 
 ---
 
@@ -117,6 +137,7 @@ spring.data.redis.port=6379
 
 ## 👨‍💻 Author
 
-**Built with ❤️ by [You]**
+Sahil Saifi
+Application Support Engineer → Aspiring Java Backend Developer
 
 If you have feedback, ideas, or issues — feel free to reach out!
